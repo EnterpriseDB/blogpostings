@@ -12,7 +12,7 @@ The content is available in the following locations:
 
   1. [BigAnimal](BigAnimal)
 
-     - [python3](BigAnimal/python3) - BigAnimal API Python3 examples
+     - [python](BigAnimal/python) - BigAnimal API Python3 examples
      - [go](BigAnimal/go) - BigAnimal API Go examples
           
 # License
