@@ -1,0 +1,40 @@
+{
+  "clusterName": "DO-python-1",
+  "instanceType": {
+    "cpu": 2,
+    "id": "azure:Standard_E2s_v3",
+    "instanceType": "E2s v3",
+    "ram": 16
+  },
+  "password": "SuperDuper123",
+  "pgConfigMap": [
+    [
+      "max_connections",
+      "100"
+    ]
+  ],
+  "postgresType": {
+    "dockerImage": "",
+    "id": "epas"
+  },
+  "postgresVersion": "14",
+  "privateNetworking": true,
+  "provider": {
+    "cloudProviderId": "azure"
+  },
+  "region": {
+    "regionId": "westus2"
+  },
+  "replicas": 3,
+  "volumeProperties": "P1",
+  "volumeType": {
+    "configFieldsList": [
+      "secretName",
+      "shareName"
+    ],
+    "displayName": "Azure Premium Storage",
+    "id": "azurepremiumstorage",
+    "storageClass": "managed-premium"
+  },
+  "zoneRedundantHa": true
+}
