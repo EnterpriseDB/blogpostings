@@ -1,0 +1,9 @@
+---
+token: "<yourtoken>"
+biganimal_server: https://portal.biganimal.com/
+# Match the name, provider pgType and pgVersion to desired filters
+list_endpoint: api/v1/clusters?name=DO-ansible&provider=azure&pgType=epas&pgVersion=14&sort=%2Bname
+provision_endpoint: api/v1/clusters
+status_endpoint: api/v1/clusters
+pgId: <your_biganimal_cluster_id>
+status_healthystate: Cluster in healthy state

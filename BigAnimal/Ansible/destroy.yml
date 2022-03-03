@@ -1,0 +1,36 @@
+# Original work by: EnterpriseDB
+# Author: Doug Ortiz
+# Date: March 03, 2022
+# Version: 1.0
+# Copyright (c) 2020 EnterpriseDB
+
+- hosts: localhost
+
+  vars_files:
+    - ./variables.yml
+
+  tasks:
+#  - name: Print token
+#    debug: msg="{{ token }}"
+    
+  - name: Delete BigAnimal Cluster
+    uri:
+      url: "{{ biganimal_server }}{{ provision_endpoint }}/{{ pgId }}"
+      method: DELETE      
+      headers:
+        Authorization: "Bearer {{ token }}"      
+        Cache-Control: no-cache
+        Accept-Encoding: gzip, deflate, br
+        Connection: keep-alive
+        Accept: application/json        
+      return_content: yes
+      validate_certs: no
+      force_basic_auth: yes
+      follow_redirects: yes
+      status_code: 204
+      timeout: 30
+    register: deletion_results
+
+  - name: BigAnimal Cluster Deletion results
+    debug:
+      var: deletion_results.msg
