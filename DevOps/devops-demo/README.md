@@ -32,7 +32,7 @@ The scripts listed below accomplish the following:
   
 # Pipeline steps
 
-The pipeline code is located in '.github/workflows/workflows.yml'. The steps for the pipeline are:
+The pipeline code is to be located in '.github/workflows/workflows.yml'. The steps for the pipeline are:
 
   1. CreateDBAndObjects - Calls the 'provision.sh' script
   2. GetDBTuplas - Calls the 'getdata.sh' script
