@@ -1,0 +1,27 @@
+name: devops-demo-runner
+
+on: push     
+
+jobs:
+  DevOps-Demo-Job:
+    runs-on: self-hosted
+    steps:
+      - name: CreateDBAndDBObjects
+        run: |
+          ./provision.sh
+
+      - name: GetDBTuplas
+        run: |
+          ./getdata.sh
+
+      - name: DisplayTuplasFound
+        run: |
+          echo "Tuplas found: ${{ env.TUPLAS_FOUND }}"
+
+      - name: NoTuplasFound
+        id: notuplasfound
+        if: ${{ env.TUPLAS_FOUND == '0' }}
+        uses: actions/github-script@v3
+        with:
+          script: |
+            core.setFailed('No tuplas found')
