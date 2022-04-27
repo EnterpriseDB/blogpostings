@@ -1,4 +1,5 @@
-# devops-demo# Getting Started
+# devops-demo
+# Getting Started
 
 `devops-demo` is a repository containing the code for the webinar and blog posts related to **Streamlining database provisioning with DevOps**.
 
