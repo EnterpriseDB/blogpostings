@@ -15,7 +15,7 @@ The content is available in the following locations:
      - [python](BigAnimal/python) - BigAnimal API Python3 examples
      - [go](BigAnimal/go) - BigAnimal API Go examples
 
-  2. [DevOps](devops-demo)
+  2. [DevOps](DataOps/dataops-demo)
   
 # License
 
