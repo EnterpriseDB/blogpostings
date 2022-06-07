@@ -1,16 +1,10 @@
-#password="YourPassword"
-#ip_address="YourHostIPAddress"
-#pg_user="YourPGUser"
-#pg_instance="YourClusterName"
-#pg_provider="YourCloudProvider"
-#pg_region="YourRegion"
+ip_address="YourHostIPAddress"
+pg_user="YourPGUser"
+pg_instance="YourClusterName"
+pg_provider="YourCloudProvider"
+pg_region="YourRegion"
 
 password=$1
-ip_address="p-nqxst6p48l.zijplqw3xxpr7nxv.biganimal.io"
-pg_user="edb_admin"
-pg_instance="DO-DATAOPS-DEMO"
-pg_provider="AWS"
-pg_region="us-west2"
 
 echo "CLUSTER PASSWORD:"
 echo $password
