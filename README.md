@@ -14,7 +14,9 @@ The content is available in the following locations:
 
      - [python](BigAnimal/python) - BigAnimal API Python3 examples
      - [go](BigAnimal/go) - BigAnimal API Go examples
-          
+
+  2. [DevOps](devops-demo)
+  
 # License
 
 Original work Copyright 2019-2020, EnterpriseDB Corporation

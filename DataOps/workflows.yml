@@ -1,0 +1,55 @@
+name: dataops-demo-runner
+
+on: push
+
+jobs:
+  DataOps-Demo-Job:
+    runs-on: self-hosted
+    env:
+      CLUSTER_PASSWORD: ${{ secrets.CLUSTER_PASSWORD }}
+    steps:
+      - name: Display Cluster Password From Secrets
+        run: |
+          echo "CLUSTER PASSWORD:" 
+          echo ${{ secrets.CLUSTER_PASSWORD }}
+
+      - name: Display Cluster Password From ENV Variable
+        run: |
+          echo "CLUSTER PASSWORD:" 
+          echo $CLUSTER_PASSWORD
+              
+      - name: CreateDBAndDBObjects
+        run: |
+          ./Provision.sh $CLUSTER_PASSWORD
+
+      - name: CheckForContactsScrubbedTable
+        run: |
+          ./CheckForContactsScrubbedTable.sh $CLUSTER_PASSWORD
+
+      - name: CountContactsScrubbedTuplas
+        run: |
+          ./CountContactsScrubbedTuplas.sh $CLUSTER_PASSWORD
+
+      - name: CheckForContactsScrubbedTable
+        run: |
+          echo "Contacts Scrubbed Table found: ${{ env.contacts_scrubbed_table_found }}"
+
+      - name: CountContactsScrubbedTable
+        run: |
+          echo "Contacts Scrubbed Table Tuplas found: ${{ env.contacts_scrubbed_tuplas_found }}"
+
+      - name: ContactsScrubbedTableFound
+        id: contactsscrubbedtablefound
+        if: ${{ env.CONTACTS_SCRUBBED_TABLE_FOUND == '0' }}
+        uses: actions/github-script@v3
+        with:
+          script: |
+            core.setFailed('Contacts Scrubbed Table - Table not found')
+
+      - name: NoTuplasFound
+        id: notuplasfound
+        if: ${{ env.CONTACTS_SCRUBBED_TUPLAS_FOUND == '0' }}
+        uses: actions/github-script@v3
+        with:
+          script: |
+            core.setFailed('Contacts Scrubbed Table - No tuplas found')
